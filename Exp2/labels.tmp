@@ -1,0 +1,53 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.42</VERSION>
+ <DEVICE>ATmega32</DEVICE>
+ <WORKING_DIR>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes\m32def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <INIT0><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>17</LINE></INIT0>
+  <DISP><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>102</LINE></DISP>
+  <INIT9><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>23</LINE></INIT9>
+  <MAIN_LOOP><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>29</LINE></MAIN_LOOP>
+  <DECREMENT><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>47</LINE></DECREMENT>
+  <INCREMENT><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>36</LINE></INCREMENT>
+  <INC1><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>58</LINE></INC1>
+  <INC2><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>66</LINE></INC2>
+  <INC3><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>76</LINE></INC3>
+  <INC4><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>88</LINE></INC4>
+  <DEC1><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>62</LINE></DEC1>
+  <DEC2><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>71</LINE></DEC2>
+  <DEC3><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>82</LINE></DEC3>
+  <DEC4><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>95</LINE></DEC4>
+  <DISPLOOP><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>103</LINE></DISPLOOP>
+  <CONVERT><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>148</LINE></CONVERT>
+  <DELAY><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>137</LINE></DELAY>
+  <L1><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>138</LINE></L1>
+  <L2><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>139</LINE></L2>
+  <L3><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>140</LINE></L3>
+  <C1><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>153</LINE></C1>
+  <C2><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>157</LINE></C2>
+  <C3><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>161</LINE></C3>
+  <C4><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>165</LINE></C4>
+  <C5><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>169</LINE></C5>
+  <C6><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>173</LINE></C6>
+  <C7><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>177</LINE></C7>
+  <C8><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>181</LINE></C8>
+  <C9><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>185</LINE></C9>
+  <C10><FILE>C:\Users\Amiri\Documents\semester6\Micro Lab\Experiments\Exp2\7seg-dipswitch.asm</FILE><LINE>188</LINE></C10>
+ </LABELS>
+</ASSEMBLER_INFO>

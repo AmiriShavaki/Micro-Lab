@@ -1,0 +1,49 @@
+; Mahdi Amiri Shavaki
+; 98522148
+
+.include "m32def.inc"
+.ORG	0
+		RJMP	BEGIN
+.ORG	OC1Aaddr
+		RJMP	ROUTINE
+
+BEGIN:	LDI		R16,HIGH(RAMEND)
+		OUT		SPH,R16
+		LDI		R16,LOW(RAMEND)
+		OUT		SPL,R16
+
+		LDI		R16,0xFF
+		OUT		DDRC,R16
+		
+		;Initialize TIMER0
+		;-----------------
+		;LDI		R16,0b00001101
+		;OUT		TCCR0,R16
+		;LDI		R16,255
+		;OUT		OCR0,R16
+		;LDI		R16,02
+		;OUT		TIMSK,R16
+		LDI		R16,0x00 ; 0
+		OUT		TCCR1A,R16
+		LDI		R16,0x0C ; CTC clk/256
+		OUT		TCCR1B,R16	
+		;7A12 = 31250 in decimal	
+		LDI		R16,0x7A
+		OUT		OCR1AH,R16	
+		LDI		R16,0x12
+		OUT		OCR1AL,R16
+		LDI		R16,0x12
+		OUT		TIMSK,R16 ;	OCIE0 and OCIE1A enabled			
+		SEI
+		
+		LDI		R16,01
+HERE:	OUT		PORTC,R16
+		RJMP	HERE
+
+
+ROUTINE:
+		LSL		R16
+		CPI		R16,0
+		BRNE	CONT
+		LDI		R16,1
+CONT:	RETI

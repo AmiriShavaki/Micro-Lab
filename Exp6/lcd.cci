@@ -1,0 +1,12 @@
+VERSION:3 SOURCE_TIMESTAMP:548675E8
+NODE:I LEVEL:0 LINE:24 "C:\cvavr\inc\mega32.h"
+NODE:I LEVEL:0 LINE:27 "C:\cvavr\inc\alcd.h"
+NODE:V LEVEL:0 LINE:29 "hr -> R5"
+NODE:V LEVEL:0 LINE:29 "min -> R4"
+NODE:V LEVEL:0 LINE:29 "sec -> R7"
+NODE:V LEVEL:0 LINE:29 "cent -> R6"
+NODE:F LEVEL:0 LINE:31 "disp_1digit(unsigned char n)"
+NODE:F LEVEL:0 LINE:36 "disp_2digit(unsigned char n)"
+NODE:F LEVEL:0 LINE:41 "disp(void)"
+NODE:F LEVEL:0 LINE:68 "timer1_ovf_isr(void)"
+NODE:F LEVEL:0 LINE:84 "main(void)"

@@ -1,0 +1,11 @@
+VERSION:3 SOURCE_TIMESTAMP:54693DA3
+NODE:I LEVEL:0 LINE:24 "C:\cvavr\inc\mega32.h"
+NODE:V LEVEL:0 LINE:26 "hr -> R5"
+NODE:V LEVEL:0 LINE:26 "min -> R4"
+NODE:V LEVEL:0 LINE:26 "sec -> R7"
+NODE:V LEVEL:0 LINE:26 "place -> R6"
+NODE:V LEVEL:0 LINE:26 "dp -> R9"
+NODE:F LEVEL:0 LINE:29 "timer0_ovf_isr(void)"
+NODE:F LEVEL:0 LINE:36 "timer1_ovf_isr(void)"
+NODE:F LEVEL:0 LINE:50 "convert(unsigned char n)"
+NODE:F LEVEL:0 LINE:75 "main(void)"

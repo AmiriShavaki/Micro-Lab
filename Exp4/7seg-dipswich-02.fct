@@ -1,0 +1,3 @@
+main DSTACK_USAGE:1 DSTACK_LEVEL:1 FILE:"7seg-dipswich-02.c" LINE:75
+convert DSTACK_USAGE:1 DSTACK_LEVEL:2 FILE:"7seg-dipswich-02.c" LINE:50
+timer1_ovf_isr DSTACK_USAGE:2 DSTACK_LEVEL:4 FILE:"7seg-dipswich-02.c" LINE:36

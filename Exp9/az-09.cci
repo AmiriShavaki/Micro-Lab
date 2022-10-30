@@ -1,0 +1,6 @@
+VERSION:3 SOURCE_TIMESTAMP:549D5C12
+NODE:I LEVEL:0 LINE:4 "C:\cvavr\inc\mega32.h"
+NODE:I LEVEL:0 LINE:7 "C:\cvavr\inc\alcd.h"
+NODE:I LEVEL:0 LINE:12 "C:\cvavr\inc\stdio.h"
+NODE:F LEVEL:0 LINE:14 "CRLF(void)"
+NODE:F LEVEL:0 LINE:19 "main(void)"

@@ -1,0 +1,9 @@
+VERSION:3 SOURCE_TIMESTAMP:54B18DC5
+NODE:I LEVEL:0 LINE:4 "C:\cvavr\inc\mega32.h"
+NODE:I LEVEL:0 LINE:7 "C:\cvavr\inc\i2c.h"
+NODE:I LEVEL:0 LINE:10 "C:\cvavr\inc\ds1307.h"
+NODE:I LEVEL:0 LINE:13 "C:\cvavr\inc\alcd.h"
+NODE:I LEVEL:0 LINE:15 "C:\cvavr\inc\delay.h"
+NODE:I LEVEL:0 LINE:16 "C:\cvavr\inc\stdlib.h"
+NODE:F LEVEL:0 LINE:18 "lcd_out(unsigned char n)"
+NODE:F LEVEL:0 LINE:25 "main(void)"

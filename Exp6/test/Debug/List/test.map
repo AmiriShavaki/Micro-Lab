@@ -1,0 +1,27 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+_base_y                                                                           0x0268       4
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+_lcd_x                                                                            R5           1
+_lcd_y                                                                            R4           1
+_lcd_maxx                                                                         R7           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+main                                                                              0x00063     27
+_lcd_write_nibble_G100                                                            0x0007E     20
+_lcd_write_data                                                                   0x00092     12
+lcd_gotoxy                                                                        0x0009E     13
+lcd_clear                                                                         0x000AB     10
+lcd_putchar                                                                       0x000B5     21
+lcd_puts                                                                          0x000CA     17
+lcd_init                                                                          0x000DB     43

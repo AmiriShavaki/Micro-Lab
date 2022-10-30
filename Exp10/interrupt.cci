@@ -1,0 +1,11 @@
+VERSION:3 SOURCE_TIMESTAMP:54AFB9FA
+NODE:I LEVEL:0 LINE:4 "C:\cvavr\inc\mega32.h"
+NODE:I LEVEL:0 LINE:7 "C:\cvavr\inc\alcd.h"
+NODE:I LEVEL:0 LINE:8 "C:\cvavr\inc\delay.h"
+NODE:I LEVEL:0 LINE:9 "C:\cvavr\inc\stdlib.h"
+NODE:V LEVEL:0 LINE:10 "a -> R5"
+NODE:V LEVEL:0 LINE:11 "led -> R6,R7"
+NODE:F LEVEL:0 LINE:13 "ext_int0_isr(void)"
+NODE:F LEVEL:0 LINE:21 "ext_int1_isr(void)"
+NODE:F LEVEL:0 LINE:29 "ext_int2_isr(void)"
+NODE:F LEVEL:0 LINE:38 "main(void)"

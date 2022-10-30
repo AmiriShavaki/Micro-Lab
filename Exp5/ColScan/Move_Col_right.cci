@@ -1,0 +1,5 @@
+VERSION:3 SOURCE_TIMESTAMP:546F9342
+NODE:I LEVEL:0 LINE:3 "C:\cvavr\inc\mega32.h"
+NODE:I LEVEL:0 LINE:4 "C:\cvavr\inc\delay.h"
+NODE:C LEVEL:0 LINE:6 "Code -> FLASH"
+NODE:F LEVEL:0 LINE:26 "main(void)"
