@@ -1,0 +1,10 @@
+VERSION:3 SOURCE_TIMESTAMP:54C5A6CB
+NODE:I LEVEL:0 LINE:1 "C:\cvavr\inc\mega32.h"
+NODE:V LEVEL:0 LINE:3 "lnum -> R4,R5"
+NODE:V LEVEL:0 LINE:3 "rnum -> R6,R7"
+NODE:V LEVEL:0 LINE:3 "i -> R8,R9"
+NODE:V LEVEL:0 LINE:3 "change_left -> R10,R11"
+NODE:C LEVEL:0 LINE:5 "bcdequ -> FLASH"
+NODE:F LEVEL:0 LINE:8 "timer0_ovf_isr(void)"
+NODE:F LEVEL:0 LINE:16 "timer1_ovf_isr(void)"
+NODE:F LEVEL:0 LINE:33 "main(void)"

@@ -1,0 +1,2 @@
+main DSTACK_USAGE:6 DSTACK_LEVEL:6 FILE:"deepswitch_hex.c" LINE:37
+timer0_comp_isr DSTACK_USAGE:8 DSTACK_LEVEL:14 FILE:"deepswitch_hex.c" LINE:32

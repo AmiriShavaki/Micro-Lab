@@ -1,0 +1,114 @@
+/*******************************************************
+This program was created by the
+CodeWizardAVR V3.12 Advanced
+Automatic Program Generator
+© Copyright 1998-2014 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+Project : 
+Version : 
+Date    : 5/27/2022
+Author  : 
+Company : 
+Comments: 
+
+
+Chip type               : ATmega32
+Program type            : Application
+AVR Core Clock frequency: 8.000000 MHz
+Memory model            : Small
+External RAM size       : 0
+Data Stack size         : 512
+*******************************************************/
+
+#include <mega32.h>
+
+// Declare your global variables here
+
+#include <delay.h>
+
+// Standard Input/Output functions
+#include <stdio.h>
+
+int i = 0;
+const char bcdequ[] = { 0x3F, 0x06, 0x5B, 0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F, 0x77,0x7C, 0x39 , 0x5E, 0x79, 0x71 }  ;
+const unsigned int segplace[6] = {0b1111101, 0b1111011, 0b1110111, 0b1101111, 0b1011111, 0b0111111};
+int arr[6] = {-1, -1, -1, -1, -1, -1};
+
+// Timer 0 overflow interrupt service routine
+interrupt [TIM0_OVF] void timer0_ovf_isr(void)
+{
+// Reinitialize Timer 0 value
+TCNT0=0x93;
+
+i = (i + 1) % 6;
+
+}
+
+void main(void)
+{
+int ind = 5; 
+// Port B initialization
+// Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out 
+DDRB=(1<<DDB7) | (1<<DDB6) | (1<<DDB5) | (1<<DDB4) | (1<<DDB3) | (1<<DDB2) | (1<<DDB1) | (1<<DDB0);
+// State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0 
+PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
+
+// Port C initialization
+// Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out 
+DDRC=(1<<DDC7) | (1<<DDC6) | (1<<DDC5) | (1<<DDC4) | (1<<DDC3) | (1<<DDC2) | (1<<DDC1) | (1<<DDC0);
+// State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0 
+PORTC=(0<<PORTC7) | (0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
+
+// USART initialization
+// Communication Parameters: 8 Data, 1 Stop, No Parity
+// USART Receiver: On
+// USART Transmitter: On
+// USART Mode: Asynchronous
+// USART Baud Rate: 9600
+UCSRA=(0<<RXC) | (0<<TXC) | (0<<UDRE) | (0<<FE) | (0<<DOR) | (0<<UPE) | (0<<U2X) | (0<<MPCM);
+UCSRB=(0<<RXCIE) | (0<<TXCIE) | (0<<UDRIE) | (1<<RXEN) | (1<<TXEN) | (0<<UCSZ2) | (0<<RXB8) | (0<<TXB8);
+UCSRC=(1<<URSEL) | (0<<UMSEL) | (0<<UPM1) | (0<<UPM0) | (0<<USBS) | (1<<UCSZ1) | (1<<UCSZ0) | (0<<UCPOL);
+UBRRH=0x00;
+UBRRL=0x33;
+
+// Timer/Counter 0 initialization
+// Clock source: System Clock
+// Clock value: 31.250 kHz
+// Mode: Normal top=0xFF
+// OC0 output: Disconnected
+// Timer Period: 3.488 ms
+TCCR0=(0<<WGM00) | (0<<COM01) | (0<<COM00) | (0<<WGM01) | (1<<CS02) | (0<<CS01) | (0<<CS00);
+TCNT0=0x93;
+OCR0=0x00;
+
+// Timer(s)/Counter(s) Interrupt(s) initialization
+TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<OCIE0) | (1<<TOIE0);
+
+// Global enable interrupts
+#asm("sei")
+
+while (1)
+      {      
+      char ch = getchar();
+      if (ch >= '0' && ch <= '9') {
+            if (ind == 5) {
+                arr[0] = -1; arr[1] = -1; arr[2] = -1; arr[3] = -1; arr[4] = -1; arr[5] = -1;
+            }                 
+            arr[5] = arr[4];
+            arr[4] = arr[3];
+            arr[3] = arr[2];
+            arr[2] = arr[1];
+            arr[1] = arr[0];
+            arr[0] = ch - '0';   
+            ind--; 
+            if (ind == -1) {
+                ind = 5;
+            }
+      }      
+if (arr[i] != -1) {
+    PORTC = bcdequ[arr[i]];
+    PORTB = segplace[i];
+}                                
+      }      
+}

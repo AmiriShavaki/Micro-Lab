@@ -1,0 +1,134 @@
+#include <mega32.h>
+
+int lnum = 0, rnum = 0, i = 0, change_left = 0;
+
+const char bcdequ[] = { 0x3F, 0x06, 0x5B, 0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F, 0x77,0x7C, 0x39 , 0x5E, 0x79, 0x71 }  ;
+
+// Timer 0 overflow interrupt service routine
+interrupt [TIM0_OVF] void timer0_ovf_isr(void)
+{
+// Reinitialize Timer 0 value
+TCNT0=0x93;
+i = (i + 1) % 8;
+}
+
+// Timer1 overflow interrupt service routine
+interrupt [TIM1_OVF] void timer1_ovf_isr(void)
+{
+// Reinitialize Timer1 value
+TCNT1H=0x85EE >> 8;
+TCNT1L=0x85EE & 0xff;
+
+rnum++;
+
+if (change_left == 1) {
+    lnum--;
+    change_left = 0;
+} else {
+    change_left = 1;
+}
+
+}
+
+void main(void)
+{
+// Declare your local variables here
+
+// Input/Output Ports initialization
+// Port B initialization
+// Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out 
+DDRB=(1<<DDB7) | (1<<DDB6) | (1<<DDB5) | (1<<DDB4) | (1<<DDB3) | (1<<DDB2) | (1<<DDB1) | (1<<DDB0);
+// State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0 
+PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
+
+// Port C initialization
+// Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out 
+DDRC=(1<<DDC7) | (1<<DDC6) | (1<<DDC5) | (1<<DDC4) | (1<<DDC3) | (1<<DDC2) | (1<<DDC1) | (1<<DDC0);
+// State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0 
+PORTC=(0<<PORTC7) | (0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
+
+// Timer/Counter 0 initialization
+// Clock source: System Clock
+// Clock value: 31.250 kHz
+// Mode: Normal top=0xFF
+// OC0 output: Disconnected
+// Timer Period: 3.488 ms
+TCCR0=(0<<WGM00) | (0<<COM01) | (0<<COM00) | (0<<WGM01) | (1<<CS02) | (0<<CS01) | (0<<CS00);
+TCNT0=0x93;
+OCR0=0x00;
+
+// Timer/Counter 1 initialization
+// Clock source: System Clock
+// Clock value: 125.000 kHz
+// Mode: Normal top=0xFFFF
+// OC1A output: Disconnected
+// OC1B output: Disconnected
+// Noise Canceler: Off
+// Input Capture on Falling Edge
+// Timer Period: 0.5 s
+// Timer1 Overflow Interrupt: On
+// Input Capture Interrupt: Off
+// Compare A Match Interrupt: Off
+// Compare B Match Interrupt: Off
+TCCR1A=(0<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (0<<WGM10);
+TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (1<<CS11) | (1<<CS10);
+TCNT1H=0x0B;
+TCNT1L=0xDC;
+ICR1H=0x00;
+ICR1L=0x00;
+OCR1AH=0x00;
+OCR1AL=0x00;
+OCR1BH=0x00;
+OCR1BL=0x00;
+
+// Timer(s)/Counter(s) Interrupt(s) initialization
+TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (1<<TOIE1) | (0<<OCIE0) | (1<<TOIE0);
+
+// Global enable interrupts
+#asm("sei")
+
+while (1)
+      {  
+if (lnum < 0) {
+    lnum = 9999;
+}
+if (rnum > 9999) {
+    rnum = 0;
+}
+      
+
+    if (i == 0) {
+        PORTB = 0b11111110;
+        PORTC = bcdequ[lnum / 1000];    
+    }                               
+    if (i == 1) {
+        PORTB = 0b11111101;
+        PORTC = bcdequ[(lnum / 100) % 10];          
+    } 
+    if (i == 2) {
+        PORTB = 0b11111011;
+        PORTC = bcdequ[(lnum / 10) % 10];     
+    }        
+    if (i == 3) {
+        PORTB = 0b11110111;
+        PORTC = bcdequ[lnum % 10];
+    }                             
+    if (i == 4) {
+        PORTB = 0b11101111;
+        PORTC = bcdequ[rnum / 1000];   
+    }                   
+    if (i == 5){
+        PORTB = 0b11011111;
+        PORTC = bcdequ[(rnum / 100) % 10];     
+    }       
+    if (i == 6) {
+        PORTB = 0b10111111;
+        PORTC = bcdequ[(rnum / 10) % 10];    
+    }                                    
+    if (i == 7) {
+        PORTB = 0b01111111;
+        PORTC = bcdequ[rnum % 10];        
+    }
+
+      }
+}

@@ -1,0 +1,3 @@
+main DSTACK_USAGE:26 DSTACK_LEVEL:26 FILE:"dipswitch_terminal.c" LINE:39
+putterminal DSTACK_USAGE:1 DSTACK_LEVEL:27 FILE:"dipswitch_terminal.c" LINE:31
+putchar DSTACK_USAGE:1 DSTACK_LEVEL:28 FILE:"" LINE:233

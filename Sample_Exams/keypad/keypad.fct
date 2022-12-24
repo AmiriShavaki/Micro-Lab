@@ -1,0 +1,5 @@
+main DSTACK_USAGE:1 DSTACK_LEVEL:1 FILE:"keypad.c" LINE:67
+putnumber DSTACK_USAGE:14 DSTACK_LEVEL:15 FILE:"keypad.c" LINE:61
+ftoa DSTACK_USAGE:13 DSTACK_LEVEL:28 FILE:"C:\cvavr\lib\stdlib.lib" LINE:959
+floor DSTACK_USAGE:4 DSTACK_LEVEL:32 FILE:"C:\cvavr\lib\math.lib" LINE:659
+ftrunc DSTACK_USAGE:4 DSTACK_LEVEL:36 FILE:"C:\cvavr\lib\math.lib" LINE:544

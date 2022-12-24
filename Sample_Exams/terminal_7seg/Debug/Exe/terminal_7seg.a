@@ -1,0 +1,427 @@
+;/*******************************************************
+;This program was created by the
+;CodeWizardAVR V3.12 Advanced
+;Automatic Program Generator
+;© Copyright 1998-2014 Pavel Haiduc, HP InfoTech s.r.l.
+;http://www.hpinfotech.com
+;
+;Project :
+;Version :
+;Date    : 5/27/2022
+;Author  :
+;Company :
+;Comments:
+;
+;
+;Chip type               : ATmega32
+;Program type            : Application
+;AVR Core Clock frequency: 8.000000 MHz
+;Memory model            : Small
+;External RAM size       : 0
+;Data Stack size         : 512
+;*******************************************************/
+;
+;#include <mega32.h>
+;PCODE: $00000000 VOL: 0
+	#ifndef __SLEEP_DEFINED__
+;PCODE: $00000001 VOL: 0
+	#define __SLEEP_DEFINED__
+;PCODE: $00000002 VOL: 0
+	.EQU __se_bit=0x80
+;PCODE: $00000003 VOL: 0
+	.EQU __sm_mask=0x70
+;PCODE: $00000004 VOL: 0
+	.EQU __sm_powerdown=0x20
+;PCODE: $00000005 VOL: 0
+	.EQU __sm_powersave=0x30
+;PCODE: $00000006 VOL: 0
+	.EQU __sm_standby=0x60
+;PCODE: $00000007 VOL: 0
+	.EQU __sm_ext_standby=0x70
+;PCODE: $00000008 VOL: 0
+	.EQU __sm_adc_noise_red=0x10
+;PCODE: $00000009 VOL: 0
+	.SET power_ctrl_reg=mcucr
+;PCODE: $0000000A VOL: 0
+	#endif
+;PCODE: $0000000B VOL: 0
+;PCODE: $0000000C VOL: 0
+;
+;// Declare your global variables here
+;
+;#include <delay.h>
+;
+;// Standard Input/Output functions
+;#include <stdio.h>
+;
+;int i = 0;
+;const unsigned int segplace[6] = {0b1111101, 0b1111011, 0b1110111, 0b1101111, 0b1011111, 0b0111111};
+;int arr[6] = {-1, -1, -1, -1, -1, -1};
+
+	.DSEG
+;
+;unsigned char bcdequ(unsigned char digit) {
+; 0000 0025 unsigned char bcdequ(unsigned char digit) {
+
+	.CSEG
+;PCODE: $0000000D VOL: 0
+;PCODE: $0000000E VOL: 0
+; 0000 0026     if (digit == 0) {
+;PCODE: $0000000F VOL: 0
+;	digit -> Y+0
+;PCODE: $00000010 VOL: 0
+;PCODE: $00000011 VOL: 0
+;PCODE: $00000012 VOL: 0
+; 0000 0027         return 0x3F;
+;PCODE: $00000013 VOL: 0
+;PCODE: $00000014 VOL: 0
+;PCODE: $00000015 VOL: 0
+; 0000 0028     }
+; 0000 0029     if (digit == 1) {
+;PCODE: $00000016 VOL: 0
+;PCODE: $00000017 VOL: 0
+;PCODE: $00000018 VOL: 0
+;PCODE: $00000019 VOL: 0
+; 0000 002A         return 0x06;
+;PCODE: $0000001A VOL: 0
+;PCODE: $0000001B VOL: 0
+;PCODE: $0000001C VOL: 0
+; 0000 002B     }
+; 0000 002C     if (digit == 2) {
+;PCODE: $0000001D VOL: 0
+;PCODE: $0000001E VOL: 0
+;PCODE: $0000001F VOL: 0
+;PCODE: $00000020 VOL: 0
+; 0000 002D         return 0x5B;
+;PCODE: $00000021 VOL: 0
+;PCODE: $00000022 VOL: 0
+;PCODE: $00000023 VOL: 0
+; 0000 002E     }
+; 0000 002F     if (digit == 3) {
+;PCODE: $00000024 VOL: 0
+;PCODE: $00000025 VOL: 0
+;PCODE: $00000026 VOL: 0
+;PCODE: $00000027 VOL: 0
+; 0000 0030         return 0x4F;
+;PCODE: $00000028 VOL: 0
+;PCODE: $00000029 VOL: 0
+;PCODE: $0000002A VOL: 0
+; 0000 0031     }
+; 0000 0032     if (digit == 4) {
+;PCODE: $0000002B VOL: 0
+;PCODE: $0000002C VOL: 0
+;PCODE: $0000002D VOL: 0
+;PCODE: $0000002E VOL: 0
+; 0000 0033         return 0x66;
+;PCODE: $0000002F VOL: 0
+;PCODE: $00000030 VOL: 0
+;PCODE: $00000031 VOL: 0
+; 0000 0034     }
+; 0000 0035     if (digit == 5) {
+;PCODE: $00000032 VOL: 0
+;PCODE: $00000033 VOL: 0
+;PCODE: $00000034 VOL: 0
+;PCODE: $00000035 VOL: 0
+; 0000 0036         return 0x6D;
+;PCODE: $00000036 VOL: 0
+;PCODE: $00000037 VOL: 0
+;PCODE: $00000038 VOL: 0
+; 0000 0037     }
+; 0000 0038     if (digit == 6) {
+;PCODE: $00000039 VOL: 0
+;PCODE: $0000003A VOL: 0
+;PCODE: $0000003B VOL: 0
+;PCODE: $0000003C VOL: 0
+; 0000 0039         return 0x7D;
+;PCODE: $0000003D VOL: 0
+;PCODE: $0000003E VOL: 0
+;PCODE: $0000003F VOL: 0
+; 0000 003A     }
+; 0000 003B     if (digit == 7) {
+;PCODE: $00000040 VOL: 0
+;PCODE: $00000041 VOL: 0
+;PCODE: $00000042 VOL: 0
+;PCODE: $00000043 VOL: 0
+; 0000 003C         return 0x07;
+;PCODE: $00000044 VOL: 0
+;PCODE: $00000045 VOL: 0
+;PCODE: $00000046 VOL: 0
+; 0000 003D     }
+; 0000 003E     if (digit == 8) {
+;PCODE: $00000047 VOL: 0
+;PCODE: $00000048 VOL: 0
+;PCODE: $00000049 VOL: 0
+;PCODE: $0000004A VOL: 0
+; 0000 003F         return 0x7F;
+;PCODE: $0000004B VOL: 0
+;PCODE: $0000004C VOL: 0
+;PCODE: $0000004D VOL: 0
+; 0000 0040     }
+; 0000 0041     if (digit == 9) {
+;PCODE: $0000004E VOL: 0
+;PCODE: $0000004F VOL: 0
+;PCODE: $00000050 VOL: 0
+;PCODE: $00000051 VOL: 0
+; 0000 0042         return 0x6F;
+;PCODE: $00000052 VOL: 0
+;PCODE: $00000053 VOL: 0
+;PCODE: $00000054 VOL: 0
+; 0000 0043     }
+; 0000 0044 }
+;PCODE: $00000055 VOL: 0
+;PCODE: $00000056 VOL: 0
+;PCODE: $00000057 VOL: 0
+;PCODE: $00000058 VOL: 0
+;
+;// Timer1 overflow interrupt service routine
+;interrupt [TIM1_OVF] void timer1_ovf_isr(void)
+; 0000 0048 {
+;PCODE: $00000059 VOL: 0
+;PCODE: $0000005A VOL: 0
+; 0000 0049 // Reinitialize Timer1 value
+; 0000 004A TCNT1H=0x3CB0 >> 8;
+;PCODE: $0000005B VOL: 0
+;PCODE: $0000005C VOL: 0
+; 0000 004B TCNT1L=0x3CB0 & 0xff;
+;PCODE: $0000005D VOL: 0
+;PCODE: $0000005E VOL: 0
+; 0000 004C if (arr[i] != -1) {
+;PCODE: $0000005F VOL: 0
+;PCODE: $00000060 VOL: 0
+;PCODE: $00000061 VOL: 0
+;PCODE: $00000062 VOL: 0
+;PCODE: $00000063 VOL: 0
+;PCODE: $00000064 VOL: 0
+;PCODE: $00000065 VOL: 0
+; 0000 004D     PORTC = bcdequ(arr[i]);
+;PCODE: $00000066 VOL: 0
+;PCODE: $00000067 VOL: 0
+;PCODE: $00000068 VOL: 0
+;PCODE: $00000069 VOL: 0
+;PCODE: $0000006A VOL: 0
+;PCODE: $0000006B VOL: 0
+;PCODE: $0000006C VOL: 0
+; 0000 004E     PORTB = segplace[i];
+;PCODE: $0000006D VOL: 0
+;PCODE: $0000006E VOL: 0
+;PCODE: $0000006F VOL: 0
+;PCODE: $00000070 VOL: 0
+;PCODE: $00000071 VOL: 0
+;PCODE: $00000072 VOL: 0
+; 0000 004F }
+; 0000 0050 i = (i + 1) % 6;
+;PCODE: $00000073 VOL: 0
+;PCODE: $00000074 VOL: 0
+;PCODE: $00000075 VOL: 0
+;PCODE: $00000076 VOL: 0
+;PCODE: $00000077 VOL: 0
+;PCODE: $00000078 VOL: 0
+; 0000 0051 
+; 0000 0052 }
+;PCODE: $00000079 VOL: 0
+;PCODE: $0000007A VOL: 0
+;PCODE: $0000007B VOL: 0
+;
+;void main(void)
+; 0000 0055 {
+;PCODE: $0000007C VOL: 0
+; 0000 0056 int ind = 5;
+; 0000 0057 // Port B initialization
+; 0000 0058 // Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out
+; 0000 0059 DDRB=(1<<DDB7) | (1<<DDB6) | (1<<DDB5) | (1<<DDB4) | (1<<DDB3) | (1<<DDB2) | (1<<DDB1) | (1<<DDB0);
+;	ind -> R16,R17
+;PCODE: $0000007D VOL: 0
+;PCODE: $0000007E VOL: 0
+;PCODE: $0000007F VOL: 0
+;PCODE: $00000080 VOL: 0
+; 0000 005A // State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0
+; 0000 005B PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
+;PCODE: $00000081 VOL: 0
+;PCODE: $00000082 VOL: 0
+; 0000 005C 
+; 0000 005D // Port C initialization
+; 0000 005E // Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out
+; 0000 005F DDRC=(1<<DDC7) | (1<<DDC6) | (1<<DDC5) | (1<<DDC4) | (1<<DDC3) | (1<<DDC2) | (1<<DDC1) | (1<<DDC0);
+;PCODE: $00000083 VOL: 0
+;PCODE: $00000084 VOL: 0
+; 0000 0060 // State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0
+; 0000 0061 PORTC=(0<<PORTC7) | (0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
+;PCODE: $00000085 VOL: 0
+;PCODE: $00000086 VOL: 0
+; 0000 0062 
+; 0000 0063 // USART initialization
+; 0000 0064 // Communication Parameters: 8 Data, 1 Stop, No Parity
+; 0000 0065 // USART Receiver: On
+; 0000 0066 // USART Transmitter: On
+; 0000 0067 // USART Mode: Asynchronous
+; 0000 0068 // USART Baud Rate: 9600
+; 0000 0069 UCSRA=(0<<RXC) | (0<<TXC) | (0<<UDRE) | (0<<FE) | (0<<DOR) | (0<<UPE) | (0<<U2X) | (0<<MPCM);
+;PCODE: $00000087 VOL: 0
+;PCODE: $00000088 VOL: 0
+; 0000 006A UCSRB=(0<<RXCIE) | (0<<TXCIE) | (0<<UDRIE) | (1<<RXEN) | (1<<TXEN) | (0<<UCSZ2) | (0<<RXB8) | (0<<TXB8);
+;PCODE: $00000089 VOL: 0
+;PCODE: $0000008A VOL: 0
+; 0000 006B UCSRC=(1<<URSEL) | (0<<UMSEL) | (0<<UPM1) | (0<<UPM0) | (0<<USBS) | (1<<UCSZ1) | (1<<UCSZ0) | (0<<UCPOL);
+;PCODE: $0000008B VOL: 0
+;PCODE: $0000008C VOL: 0
+; 0000 006C UBRRH=0x00;
+;PCODE: $0000008D VOL: 0
+;PCODE: $0000008E VOL: 0
+; 0000 006D UBRRL=0x33;
+;PCODE: $0000008F VOL: 0
+;PCODE: $00000090 VOL: 0
+; 0000 006E 
+; 0000 006F // Timer/Counter 1 initialization
+; 0000 0070 // Clock source: System Clock
+; 0000 0071 // Clock value: 1000.000 kHz
+; 0000 0072 // Mode: Normal top=0xFFFF
+; 0000 0073 // OC1A output: Disconnected
+; 0000 0074 // OC1B output: Disconnected
+; 0000 0075 // Noise Canceler: Off
+; 0000 0076 // Input Capture on Falling Edge
+; 0000 0077 // Timer Period: 50 ms
+; 0000 0078 // Timer1 Overflow Interrupt: On
+; 0000 0079 // Input Capture Interrupt: Off
+; 0000 007A // Compare A Match Interrupt: Off
+; 0000 007B // Compare B Match Interrupt: Off
+; 0000 007C TCCR1A=(0<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (0<<WGM10);
+;PCODE: $00000091 VOL: 0
+;PCODE: $00000092 VOL: 0
+; 0000 007D TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (1<<CS11) | (0<<CS10);
+;PCODE: $00000093 VOL: 0
+;PCODE: $00000094 VOL: 0
+; 0000 007E TCNT1H=0x3C;
+;PCODE: $00000095 VOL: 0
+;PCODE: $00000096 VOL: 0
+; 0000 007F TCNT1L=0xB0;
+;PCODE: $00000097 VOL: 0
+;PCODE: $00000098 VOL: 0
+; 0000 0080 ICR1H=0x00;
+;PCODE: $00000099 VOL: 0
+;PCODE: $0000009A VOL: 0
+; 0000 0081 ICR1L=0x00;
+;PCODE: $0000009B VOL: 0
+;PCODE: $0000009C VOL: 0
+; 0000 0082 OCR1AH=0x00;
+;PCODE: $0000009D VOL: 0
+;PCODE: $0000009E VOL: 0
+; 0000 0083 OCR1AL=0x00;
+;PCODE: $0000009F VOL: 0
+;PCODE: $000000A0 VOL: 0
+; 0000 0084 OCR1BH=0x00;
+;PCODE: $000000A1 VOL: 0
+;PCODE: $000000A2 VOL: 0
+; 0000 0085 OCR1BL=0x00;
+;PCODE: $000000A3 VOL: 0
+;PCODE: $000000A4 VOL: 0
+; 0000 0086 
+; 0000 0087 // Timer(s)/Counter(s) Interrupt(s) initialization
+; 0000 0088 TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (1<<TOIE1) | (0<<OCIE0) | (0<<TOIE0);
+;PCODE: $000000A5 VOL: 0
+;PCODE: $000000A6 VOL: 0
+; 0000 0089 
+; 0000 008A // Global enable interrupts
+; 0000 008B #asm("sei")
+;PCODE: $000000A7 VOL: 0
+	sei
+;PCODE: $000000A8 VOL: 0
+; 0000 008C 
+; 0000 008D while (1)
+;PCODE: $000000A9 VOL: 0
+; 0000 008E       {
+; 0000 008F       char ch = getchar();
+; 0000 0090       if (ch >= '0' && ch <= '9') {
+;PCODE: $000000AA VOL: 0
+;	ch -> Y+0
+;PCODE: $000000AB VOL: 0
+;PCODE: $000000AC VOL: 0
+;PCODE: $000000AD VOL: 0
+;PCODE: $000000AE VOL: 0
+;PCODE: $000000AF VOL: 0
+;PCODE: $000000B0 VOL: 0
+;PCODE: $000000B1 VOL: 0
+;PCODE: $000000B2 VOL: 0
+;PCODE: $000000B3 VOL: 0
+;PCODE: $000000B4 VOL: 0
+;PCODE: $000000B5 VOL: 0
+;PCODE: $000000B6 VOL: 0
+; 0000 0091             if (ind == 5) {
+;PCODE: $000000B7 VOL: 0
+;PCODE: $000000B8 VOL: 0
+;PCODE: $000000B9 VOL: 0
+; 0000 0092                 arr[0] = -1; arr[1] = -1; arr[2] = -1; arr[3] = -1; arr[4] = -1; arr[5] = -1;
+;PCODE: $000000BA VOL: 0
+;PCODE: $000000BB VOL: 0
+;PCODE: $000000BC VOL: 0
+;PCODE: $000000BD VOL: 0
+;PCODE: $000000BE VOL: 0
+;PCODE: $000000BF VOL: 0
+;PCODE: $000000C0 VOL: 0
+;PCODE: $000000C1 VOL: 0
+;PCODE: $000000C2 VOL: 0
+;PCODE: $000000C3 VOL: 0
+;PCODE: $000000C4 VOL: 0
+;PCODE: $000000C5 VOL: 0
+;PCODE: $000000C6 VOL: 0
+;PCODE: $000000C7 VOL: 0
+;PCODE: $000000C8 VOL: 0
+;PCODE: $000000C9 VOL: 0
+;PCODE: $000000CA VOL: 0
+;PCODE: $000000CB VOL: 0
+;PCODE: $000000CC VOL: 0
+;PCODE: $000000CD VOL: 0
+;PCODE: $000000CE VOL: 0
+;PCODE: $000000CF VOL: 0
+; 0000 0093             }
+; 0000 0094             arr[5] = arr[4];
+;PCODE: $000000D0 VOL: 0
+;PCODE: $000000D1 VOL: 0
+;PCODE: $000000D2 VOL: 0
+;PCODE: $000000D3 VOL: 0
+;PCODE: $000000D4 VOL: 0
+; 0000 0095             arr[4] = arr[3];
+;PCODE: $000000D5 VOL: 0
+;PCODE: $000000D6 VOL: 0
+;PCODE: $000000D7 VOL: 0
+;PCODE: $000000D8 VOL: 0
+; 0000 0096             arr[3] = arr[2];
+;PCODE: $000000D9 VOL: 0
+;PCODE: $000000DA VOL: 0
+;PCODE: $000000DB VOL: 0
+;PCODE: $000000DC VOL: 0
+; 0000 0097             arr[2] = arr[1];
+;PCODE: $000000DD VOL: 0
+;PCODE: $000000DE VOL: 0
+;PCODE: $000000DF VOL: 0
+;PCODE: $000000E0 VOL: 0
+; 0000 0098             arr[1] = arr[0];
+;PCODE: $000000E1 VOL: 0
+;PCODE: $000000E2 VOL: 0
+;PCODE: $000000E3 VOL: 0
+; 0000 0099             arr[0] = ch - '0';
+;PCODE: $000000E4 VOL: 0
+;PCODE: $000000E5 VOL: 0
+;PCODE: $000000E6 VOL: 0
+;PCODE: $000000E7 VOL: 0
+; 0000 009A             ind--;
+;PCODE: $000000E8 VOL: 0
+;PCODE: $000000E9 VOL: 0
+; 0000 009B             if (ind == -1) {
+;PCODE: $000000EA VOL: 0
+;PCODE: $000000EB VOL: 0
+;PCODE: $000000EC VOL: 0
+; 0000 009C                 ind = 5;
+;PCODE: $000000ED VOL: 0
+;PCODE: $000000EE VOL: 0
+; 0000 009D             }
+; 0000 009E       }
+;PCODE: $000000EF VOL: 0
+; 0000 009F       }
+;PCODE: $000000F0 VOL: 0
+;PCODE: $000000F1 VOL: 0
+;PCODE: $000000F2 VOL: 0
+;PCODE: $000000F3 VOL: 0
+; 0000 00A0 }
+;PCODE: $000000F4 VOL: 0
+;PCODE: $000000F5 VOL: 0
+;PCODE: $000000F6 VOL: 0

@@ -1,0 +1,7 @@
+VERSION:3 SOURCE_TIMESTAMP:54BD68CC
+NODE:I LEVEL:0 LINE:24 "C:\cvavr\inc\mega32.h"
+NODE:I LEVEL:0 LINE:26 "C:\cvavr\inc\delay.h"
+NODE:C LEVEL:0 LINE:28 "code -> FLASH"
+NODE:V LEVEL:0 LINE:29 "pos -> R5"
+NODE:F LEVEL:0 LINE:32 "timer0_comp_isr(void)"
+NODE:F LEVEL:0 LINE:37 "main(void)"

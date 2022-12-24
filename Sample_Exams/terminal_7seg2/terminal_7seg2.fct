@@ -1,0 +1,3 @@
+main DSTACK_USAGE:0 DSTACK_LEVEL:0 FILE:"terminal_7seg2.c" LINE:81
+timer0_ovf_isr DSTACK_USAGE:12 DSTACK_LEVEL:12 FILE:"terminal_7seg2.c" LINE:67
+bcdequ DSTACK_USAGE:1 DSTACK_LEVEL:13 FILE:"terminal_7seg2.c" LINE:33
